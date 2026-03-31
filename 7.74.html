@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 74: Електричне коло та його елементи</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .answer-content { display: none; }
+        .answer-content.active { display: block; }
+        /* Повна заборона курсиву */
+        * { font-style: normal !important; }
+        .image-box {
+            border: 2px dashed #94a3b8;
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 1rem;
+            margin: 1rem 0;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 antialiased">
 
+    <div class="max-w-4xl mx-auto my-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-700 to-indigo-800 p-8 md:p-12 text-white">
+            <div class="mb-3 uppercase text-xs font-bold tracking-widest text-blue-200">Фізика • 8 Клас</div>
+            <h1 class="text-3xl md:text-4xl font-black mb-3 uppercase tracking-tight">Електричне коло та його елементи</h1>
+            <p class="text-blue-100 opacity-90 font-medium">Урок №74: Склад кола та напрямок струму.</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="flex bg-white border-b sticky top-0 z-10 shadow-sm">
+            <button onclick="showTab('intro')" id="btn-intro" class="flex-1 py-4 font-bold uppercase tracking-widest border-b-4 border-blue-600 text-blue-600 bg-blue-50 transition-all">Контрольні</button>
+            <button onclick="showTab('theory')" id="btn-theory" class="flex-1 py-4 font-bold uppercase tracking-widest border-b-4 border-transparent text-gray-400 hover:text-gray-600 transition-all">Теорія</button>
+            <button onclick="showTab('practice')" id="btn-practice" class="flex-1 py-4 font-bold uppercase tracking-widest border-b-4 border-transparent text-gray-400 hover:text-gray-600 transition-all">Задачі</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="p-6 md:p-10 bg-white">
+            
+            <!-- Tab: Intro -->
+            <div id="intro" class="tab-content active space-y-4">
+                <h2 class="text-xl font-bold text-blue-700 mb-6 uppercase border-l-4 border-blue-600 pl-4">I. Контрольні запитання</h2>
+                <div class="border rounded-2xl divide-y overflow-hidden">
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans1')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>1. Які пристрої називають джерелами електричного струму?</span>
+                            <span class="text-blue-500 transition-transform">▼</span>
+                        </button>
+                        <div id="ans1" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-xl border-l-4 border-blue-400">
+                            Джерела електричного струму — це пристрої, в яких відбувається розділення різнойменних електричних зарядів за рахунок виконання роботи.
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans2')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>2. Які процеси відбуваються в джерелах електричного струму?</span>
+                            <span class="text-blue-500">▼</span>
+                        </button>
+                        <div id="ans2" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-xl border-l-4 border-blue-400">
+                            Відбувається розділення позитивних і негативних зарядів, у результаті чого на одному полюсі накопичується позитивний заряд, а на іншому — негативний.
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans3')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>3. Чому для розділення зарядів необхідно виконати роботу?</span>
+                            <span class="text-blue-500">▼</span>
+                        </button>
+                        <div id="ans3" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-xl border-l-4 border-blue-400">
+                            Тому що між різнойменними зарядами діють сили притягання, які потрібно подолати для їх розділення.
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans4')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>4. Завдяки якій енергії може здійснюватися розділення зарядів?</span>
+                            <span class="text-blue-500">▼</span>
+                        </button>
+                        <div id="ans4" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-xl border-l-4 border-blue-400">
+                            Розділення може здійснюватися за рахунок механічної, хімічної, внутрішньої (теплової), світлової або іншої енергії (крім електричної).
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans5')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>5. Які джерела електричного струму ви знаєте?</span>
+                            <span class="text-blue-500">▼</span>
+                        </button>
+                        <div id="ans5" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-lg border-l-4 border-blue-400">
+                            Гальванічні елементи (ліхтарики), акумулятори (автомобілі, телефони), фотоелементи (сонячні батареї), термоелементи, електромашинні генератори.
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-gray-50 transition-colors">
+                        <button onclick="toggleAnswer('ans6')" class="w-full text-left font-bold flex justify-between items-center group">
+                            <span>6. Що спільного між гальванічними елементами та акумуляторами?</span>
+                            <span class="text-blue-500">▼</span>
+                        </button>
+                        <div id="ans6" class="answer-content mt-3 p-4 bg-blue-50 text-blue-800 rounded-lg border-l-4 border-blue-400">
+                            Спільне: в обох електрична енергія виробляється за рахунок хімічних реакцій. Відмінність: в акумуляторі хімічні реакції є оборотними, тому його можна заряджати.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Theory -->
+            <div id="theory" class="tab-content space-y-8 text-justify">
+                <h2 class="text-xl font-bold text-blue-700 mb-4 uppercase border-l-4 border-blue-600 pl-4">II. Теоретичний матеріал</h2>
+                
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+                    <h3 class="text-blue-900 font-bold text-lg mb-2">Електричне коло</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        <b>Електричне коло</b> — це сукупність пристроїв, з’єднаних між собою провідниками, якими може текти електричний струм.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="font-bold text-gray-800 text-lg flex items-center gap-2">
+                        <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                        Склад електричного кола:
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 border rounded-xl bg-white shadow-sm hover:border-blue-300 transition-colors">
+                            <p class="font-bold text-blue-600 mb-1">Джерело струму</p>
+                            <p class="text-sm text-gray-600 leading-snug">Створює електричне поле (батарея, акумулятор, генератор).</p>
+                        </div>
+                        <div class="p-4 border rounded-xl bg-white shadow-sm hover:border-blue-300 transition-colors">
+                            <p class="font-bold text-blue-600 mb-1">Споживачі</p>
+                            <p class="text-sm text-gray-600 leading-snug">Лампи, електродвигуни, нагрівачі, електропобутові прилади.</p>
+                        </div>
+                        <div class="p-4 border rounded-xl bg-white shadow-sm hover:border-blue-300 transition-colors">
+                            <p class="font-bold text-blue-600 mb-1">Пристрої керування</p>
+                            <p class="text-sm text-gray-600 leading-snug">Ключі, вимикачі, кнопочні вимикачі, реле.</p>
+                        </div>
+                        <div class="p-4 border rounded-xl bg-white shadow-sm hover:border-blue-300 transition-colors">
+                            <p class="font-bold text-blue-600 mb-1">Провідники</p>
+                            <p class="text-sm text-gray-600 leading-snug">З'єднують елементи кола в єдину замкнену систему.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-gray-100 rounded-2xl border-2 border-gray-200">
+                    <h3 class="font-bold text-gray-800 text-lg mb-3">Умовні позначення</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Для побудови та читання електричних схем використовують спеціальні умовні позначення. Знайдіть та розгляньте таблицю умовних позначень на <b>сторінці 208 вашого підручника</b>.
+                    </p>
+                </div>
+
+                <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 shadow-sm border-l-8 border-l-yellow-400">
+                    <h3 class="text-yellow-900 font-bold text-lg mb-2">Напрямок струму</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        За напрямок струму в колі прийнято напрямок від <b>позитивного полюса джерела (+)</b> до <b>негативного полюса (-)</b>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab: Practice -->
+            <div id="practice" class="tab-content space-y-12">
+                <h2 class="text-xl font-bold text-blue-700 mb-6 uppercase border-l-4 border-blue-600 pl-4">III. Розв'язування задач</h2>
+                
+                <!-- Задача 1 -->
+                <div class="border-2 border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="bg-blue-100 text-blue-700 px-3 py-1 rounded-md inline-block text-xs font-black mb-4 uppercase tracking-tighter">Задача 1</div>
+                    <p class="text-lg font-bold text-gray-800 mb-6 leading-relaxed">
+                        Які елементи містить електричний ліхтарик? Опишіть, яку функцію виконує кожен з них у роботі електричного кола.
+                    </p>
+
+                    <div class="image-box shadow-inner">
+                        <img src="images/task1_1.png" alt="Рисунок 1.1" 
+                             class="max-w-full h-auto rounded-xl shadow-lg border" 
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden flex-col items-center">
+                            <div class="bg-red-500 text-white px-6 py-2 rounded-full font-black text-lg mb-3 shadow-md">РИСУНОК 1.1</div>
+                            <p class="text-xs text-gray-400 font-mono">Шлях: images/task1_1.png</p>
+                            <p class="text-[10px] text-gray-400 mt-6 max-w-xs text-center uppercase tracking-widest font-bold">Блок очікує файл зображення</p>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleAnswer('sol1')" class="mt-6 w-full md:w-auto bg-blue-600 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2">
+                        <span>Переглянути відповідь</span>
+                    </button>
+                    
+                    <div id="sol1" class="answer-content mt-6 p-6 bg-green-50 text-green-900 rounded-2xl border border-green-200 leading-relaxed whitespace-pre-line">Електричний ліхтарик містить такі елементи: джерело струму, електричну лампу, провідник і вимикач.
+
+Джерело струму подає електричну енергію в коло. У ліхтарику це батарейка, яка створює електричне поле.
+
+Провідник передає електричний струм від батарейки до лампи й назад. У корпусі ліхтарика ним є металеві контакти та внутрішні дроти.
+
+Електрична лампа (споживач) перетворює електричну енергію на світло (і частково на тепло). 
+
+Вимикач (кнопка на корпусі ліхтарика) замикає або розмикає коло. Коли вимикач замкнений лампа світиться; коли він розімкнений, струм не протікає, і лампа гасне.</div>
+                </div>
+
+                <!-- Задача 2 -->
+                <div class="border-2 border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="bg-blue-100 text-blue-700 px-3 py-1 rounded-md inline-block text-xs font-black mb-4 uppercase tracking-tighter">Задача 2</div>
+                    <p class="text-lg font-bold text-gray-800 mb-6 leading-relaxed">
+                        Учню видано: провідники, лампа і дзвінок. Що ще має взяти учень з обладнання, щоб складене електричне коло було повноцінним та робочим?
+                    </p>
+                    <button onclick="toggleAnswer('sol2')" class="w-full md:w-auto bg-blue-600 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-md active:scale-95">Відповідь</button>
+                    <div id="sol2" class="answer-content mt-6 p-6 bg-green-50 text-green-900 rounded-2xl border border-green-200 leading-relaxed whitespace-pre-line">Щоб складене електричне коло було повноцінним і робочим, учню, крім провідників, лампи та дзвінка, потрібно взяти джерело електричного струму (наприклад, батарейку або акумулятор), яке забезпечить наявність струму в колі, а також ключ (вимикач), щоб мати змогу замикати і розмикати коло. Без джерела струму заряджені частинки не будуть рухатися, а без ключа коло буде постійно замкнутим, що незручно для керування.</div>
+                </div>
+
+                <!-- Задача 3 -->
+                <div class="border-2 border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm">
+                    <div class="bg-blue-100 text-blue-700 px-3 py-1 rounded-md inline-block text-xs font-black mb-4 uppercase tracking-tighter">Задача 3</div>
+                    <p class="text-lg font-bold text-gray-800 mb-6 leading-relaxed">
+                        Накресліть схему, у якій два резистори підключені послідовно з батареєю акумуляторів та ключем. Стрілками покажіть напрямок струму в колі.
+                    </p>
+
+                    <div class="image-box shadow-inner">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-blue-500 text-white px-6 py-2 rounded-full font-black text-lg mb-3 shadow-md">УМОВА ЗАДАЧІ</div>
+                            <p class="text-sm text-gray-500 italic max-w-xs text-center">Самостійно накресліть схему в зошиті згідно з умовою.</p>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleAnswer('sol3')" class="w-full md:w-auto bg-blue-600 text-white px-10 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-md active:scale-95">Правильне виконання</button>
+                    
+                    <div id="sol3" class="answer-content mt-6 p-4 bg-green-50 rounded-2xl border border-green-200 flex justify-center overflow-hidden">
+                        <div class="flex flex-col items-center py-4">
+                            <!-- Використання завантаженого зображення -->
+                            <img src="image_3be1e7.png" alt="Схема до задачі 3" 
+                                 class="max-w-full h-auto rounded-xl shadow-lg border border-green-300">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="p-8 bg-gray-50 border-t text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest space-y-2">
+            <div>Інтерактивний навчальний посібник • Фізика 8 клас</div>
+            <div class="opacity-50">Розроблено для уроку №74</div>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('border-blue-600', 'text-blue-600', 'bg-blue-50');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('border-blue-600', 'text-blue-600', 'bg-blue-50');
+            activeBtn.classList.remove('border-transparent', 'text-gray-400');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleAnswer(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
