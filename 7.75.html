@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 75: Розв’язування задач</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .solution-content {
+            display: none;
+        }
+        .solution-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased line-height-relaxed">
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12 border-b pb-6 border-blue-200">
+            <h1 class="text-4xl font-extrabold text-blue-900 mb-2">Урок 75: Розв’язування задач</h1>
+            <p class="text-lg text-blue-600 font-medium">Фізика 8 клас</p>
+        </header>
+
+        <!-- Section: Check Homework -->
+        <section class="mb-10 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-800 p-2 rounded-lg mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </span>
+                Перевірка домашнього завдання
+            </h2>
+
+            <!-- Control Questions Linked Title -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                    <a href="https://l23and24.github.io/control_questions-8/34.html" target="_blank" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300 transition-colors inline-flex items-center">
+                        Контрольні запитання
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="L10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </h3>
+            </div>
+
+            <!-- Exercise 34 (3) -->
+            <div class="mb-8 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Вправа № 34 (3)</h3>
+                <p class="italic text-gray-700">Накресліть схеми електричних кіл, зображених на рис. 3, а–в, стрілками покажіть напрямок струму в колах.</p>
+                
+                <div class="mt-4 bg-white p-2 rounded shadow-inner flex justify-center">
+                    <img src="draw74.3.png" alt="[Схеми електричних кіл до вправи 34.3]" onerror="this.src='https://via.placeholder.com/600x300?text=Зображення+draw74.3.png'" class="max-w-full h-auto rounded">
+                </div>
+            </div>
+
+            <!-- Answers Accordion -->
+            <div class="space-y-4">
+                <p class="font-bold text-gray-800">Відповіді до вправи:</p>
+                
+                <!-- Solution A -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button onclick="toggleSolution('solA')" class="w-full text-left px-4 py-3 bg-gray-100 hover:bg-gray-200 font-semibold flex justify-between items-center transition-colors">
+                        <span>Переглянути розв'язання (Схема А)</span>
+                        <svg id="icon-solA" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div id="solA" class="solution-content p-4 bg-white border-t">
+                        <img src="https://prirodnicha.org/_astro/34-3-ar.C4RBE3bm_Z15rfMV.webp" alt="[Розв'язання Схема А]" class="max-w-full h-auto rounded mx-auto shadow-md">
+                    </div>
+                </div>
+
+                <!-- Solution B -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button onclick="toggleSolution('solB')" class="w-full text-left px-4 py-3 bg-gray-100 hover:bg-gray-200 font-semibold flex justify-between items-center transition-colors">
+                        <span>Переглянути розв'язання (Схема Б)</span>
+                        <svg id="icon-solB" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div id="solB" class="solution-content p-4 bg-white border-t">
+                        <img src="https://prirodnicha.org/_astro/34-4-bar.Dkc2vH0d_1cvvFN.webp" alt="[Розв'язання Схема Б]" class="max-w-full h-auto rounded mx-auto shadow-md">
+                    </div>
+                </div>
+
+                <!-- Solution C -->
+                <div class="border rounded-lg overflow-hidden">
+                    <button onclick="toggleSolution('solC')" class="w-full text-left px-4 py-3 bg-gray-100 hover:bg-gray-200 font-semibold flex justify-between items-center transition-colors">
+                        <span>Переглянути розв'язання (Схема В)</span>
+                        <svg id="icon-solC" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div id="solC" class="solution-content p-4 bg-white border-t">
+                        <img src="https://prirodnicha.org/_astro/34-5-bar.Cpub_X3J_1gl3Ob.webp" alt="[Розв'язання Схема В]" class="max-w-full h-auto rounded mx-auto shadow-md">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 border-t pt-4 text-gray-500">
+                <h3 class="text-lg font-bold">Вправа № 34 (6)</h3>
+            </div>
+        </section>
+
+        <!-- Section: Independent Work -->
+        <section class="mb-10 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <span class="bg-purple-100 text-purple-800 p-2 rounded-lg mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                </span>
+                Самостійна робота
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="https://drive.google.com/file/d/1Qjz6NAlHddKAqEHoa7Kmzc8L_sMKkD0_/view?usp=sharing" target="_blank" class="flex items-center p-4 bg-gray-50 border rounded-lg hover:bg-purple-50 hover:border-purple-200 transition-all group">
+                    <span class="mr-3 text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </span>
+                    <span class="text-gray-800 font-semibold group-hover:text-purple-900 text-lg">Сторінка 1</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1BkT6lp0aMvLrbI7imiALIaxco9b2F_B1/view?usp=sharing" target="_blank" class="flex items-center p-4 bg-gray-50 border rounded-lg hover:bg-purple-50 hover:border-purple-200 transition-all group">
+                    <span class="mr-3 text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </span>
+                    <span class="text-gray-800 font-semibold group-hover:text-purple-900 text-lg">Сторінка 2</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section: Homework -->
+        <footer class="mt-12 bg-gray-800 text-white rounded-xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 flex items-center text-orange-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Домашнє завдання
+            </h2>
+            <div class="space-y-2 text-lg">
+                <p><span class="text-orange-300 font-bold">•</span> Опрацювати <span class="font-bold">§ 35 (п. 1-2)</span></p>
+                <p><span class="text-orange-300 font-bold">•</span> Контр. запитання <span class="font-bold">№ 1-5 (с. 217)</span></p>
+            </div>
+        </footer>
+
+        <!-- Copyright -->
+        <div class="mt-12 text-center text-gray-400 text-sm">
+            <p>&copy; 2024 GitHub Конспект з фізики. Всі права захищені.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
