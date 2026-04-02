@@ -135,7 +135,7 @@
             grid.innerHTML = ''; 
             
             for (let i = 1; i <= TOTAL_LESSONS; i++) {
-                // Тепер посилання веде просто на i.html (наприклад, 1.html, 75.html)
+                // Посилання веде на i.html (наприклад, 75.html)
                 const fileName = i + '.html';
                 const displayTitle = i.toString();
                 
@@ -144,6 +144,13 @@
                 a.className = 'lesson-card';
                 a.textContent = displayTitle;
                 a.setAttribute('data-num', displayTitle);
+                
+                // Додаємо обробник помилок, якщо файл не знайдено (опціонально)
+                a.onclick = function(e) {
+                    // Можна додати логіку перевірки, але для GitHub Pages 
+                    // просто дозволяємо стандартний перехід
+                };
+                
                 grid.appendChild(a);
             }
         }
@@ -155,24 +162,23 @@
 
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
+                // Точний пошук або входження номера
                 card.style.display = text.includes(filter) ? "flex" : "none";
             });
         }
 
-        // Запуск генерації
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        // Запуск генерації після завантаження DOM
+        window.onload = function() {
             generateGrid();
-        } else {
-            document.addEventListener('DOMContentLoaded', generateGrid);
-        }
+        };
 
-        // Запасний запуск
+        // Запасний запуск через таймер, якщо onload затримається
         setTimeout(function() {
             const grid = document.getElementById('grid');
             if (grid && grid.children.length === 0) {
                 generateGrid();
             }
-        }, 800);
+        }, 500);
     </script>
 
 </body>
