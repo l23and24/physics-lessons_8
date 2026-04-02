@@ -135,7 +135,7 @@
             grid.innerHTML = ''; 
             
             for (let i = 1; i <= TOTAL_LESSONS; i++) {
-                // Посилання веде на i.html (наприклад, 75.html)
+                // Прямий відносний шлях без зайвих символів
                 const fileName = i + '.html';
                 const displayTitle = i.toString();
                 
@@ -145,10 +145,9 @@
                 a.textContent = displayTitle;
                 a.setAttribute('data-num', displayTitle);
                 
-                // Додаємо обробник помилок, якщо файл не знайдено (опціонально)
-                a.onclick = function(e) {
-                    // Можна додати логіку перевірки, але для GitHub Pages 
-                    // просто дозволяємо стандартний перехід
+                // Додаємо відладочну інформацію в консоль при натисканні
+                a.onclick = function() {
+                    console.log('Перехід до файлу: ' + fileName);
                 };
                 
                 grid.appendChild(a);
@@ -162,23 +161,17 @@
 
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                // Точний пошук або входження номера
                 card.style.display = text.includes(filter) ? "flex" : "none";
             });
         }
 
-        // Запуск генерації після завантаження DOM
-        window.onload = function() {
-            generateGrid();
-        };
+        // Ініціалізація
+        document.addEventListener('DOMContentLoaded', generateGrid);
 
-        // Запасний запуск через таймер, якщо onload затримається
-        setTimeout(function() {
-            const grid = document.getElementById('grid');
-            if (grid && grid.children.length === 0) {
-                generateGrid();
-            }
-        }, 500);
+        // Запасний запуск (якщо DOMContentLoaded вже відбувся)
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            generateGrid();
+        }
     </script>
 
 </body>
