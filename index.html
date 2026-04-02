@@ -30,16 +30,27 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
-        /* Вирівнювання тексту по ширині */
         .text-justify {
             text-align: justify;
         }
-        /* Обкладинка підручника */
+        /* Стилі для обкладинки підручника */
+        .book-cover-container {
+            flex-shrink: 0;
+            width: 150px;
+            margin: 0 auto;
+        }
         .book-cover {
-            width: 140px;
+            width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .book-cover-container {
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -48,32 +59,33 @@
     <div class="max-w-5xl mx-auto px-4 py-12">
         
         <!-- Шапка сторінки -->
-        <header class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-10">
-            <h1 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                📚 Фізика 8 клас (НУШ) — Навчальні матеріали
-            </h1>
-            
-            <div class="flex flex-col md:flex-row gap-8 items-start">
+        <header class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 md:p-10 mb-10">
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                
                 <!-- Блок з фото підручника -->
-                <div class="flex-shrink-0 mx-auto md:mx-0">
-                    <img src="cover_70_1.png" alt="Обкладинка підручника Фізика 8 клас" class="book-cover" onerror="this.style.display='none'; console.warn('Файл cover_70_1.png не знайдено в кореневій папці')">
+                <div class="book-cover-container">
+                    <img src="cover_70_1.png" alt="Обкладинка підручника Фізика 8 клас" class="book-cover">
                 </div>
 
-                <div class="flex-1 space-y-4">
+                <div class="flex-1">
+                    <h1 class="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 justify-center md:justify-start">
+                        📚 Фізика 8 клас (НУШ)
+                    </h1>
+                    
                     <div class="space-y-4 text-lg text-slate-600 leading-relaxed border-l-4 border-indigo-500 pl-6 text-justify">
                         <p>
                             <strong>Вітаю на головній сторінці курсу фізики для 8 класу за програмою НУШ.</strong>
                         </p>
                         <p>
-                            Тут зібрані всі уроки, лабораторні роботи та проєкти, структуровані для зручного навчання та швидкого доступу. Кожен номер картки нижче відповідає окремій темі або заняттю.
+                            Тут зібрані всі уроки, лабораторні роботи та проєкти. Для швидкого переходу до потрібного матеріалу натисніть на відповідний номер уроку нижче.
                         </p>
                     </div>
                     
-                    <div class="mt-6 flex flex-wrap gap-4">
-                        <div class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold">
+                    <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <div class="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold border border-indigo-100">
                             105 уроків
                         </div>
-                        <div class="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        <div class="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-semibold border border-emerald-100">
                             НУШ 2025/26
                         </div>
                     </div>
@@ -82,15 +94,17 @@
         </header>
 
         <!-- Пошук -->
-        <div class="mb-8 max-w-md">
-            <label for="search" class="block text-sm font-medium text-slate-700 mb-2">Швидкий пошук номера:</label>
-            <input 
-                type="text" 
-                id="search" 
-                placeholder="Наприклад: 8.15" 
-                class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-indigo-500 outline-none transition-all"
-                onkeyup="filterLessons()"
-            >
+        <div class="mb-10 max-w-md mx-auto md:mx-0">
+            <label for="search" class="block text-sm font-medium text-slate-700 mb-2 ml-1">Швидкий пошук номера:</label>
+            <div class="relative">
+                <input 
+                    type="text" 
+                    id="search" 
+                    placeholder="Введіть номер (наприклад: 7.75)" 
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-slate-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all shadow-sm"
+                    onkeyup="filterLessons()"
+                >
+            </div>
         </div>
 
         <!-- Інтерактивна сітка -->
@@ -98,22 +112,25 @@
             <!-- Кнопки будуть згенеровані скриптом -->
         </div>
 
-        <footer class="mt-20 py-8 border-t border-slate-200 text-center text-slate-500 text-sm">
-            <p>Онлайн-кабінет фізики 229</p>
+        <footer class="mt-20 py-10 border-t border-slate-200 text-center text-slate-400 text-sm">
+            <p>© Онлайн-кабінет фізики 229</p>
         </footer>
     </div>
 
     <script>
-        // Конфігурація для 8 класу
+        // Конфігурація
         const TOTAL_LESSONS = 105; 
-        const LESSON_PREFIX = '8';
+        const FILE_PREFIX = '7'; // Префікс для файлів (як вони названі в папці)
+        const DISPLAY_PREFIX = '7'; // Те, що буде написано на самих кнопках
 
         // Функція для генерації кнопок
         function generateGrid() {
             const grid = document.getElementById('grid');
             for (let i = 1; i <= TOTAL_LESSONS; i++) {
-                const lessonId = `${LESSON_PREFIX}.${i}`;
+                const lessonId = `${FILE_PREFIX}.${i}`;
                 const a = document.createElement('a');
+                
+                // Посилання веде на існуючі файли 7.x.html
                 a.href = `${lessonId}.html`;
                 a.className = 'lesson-card';
                 a.textContent = lessonId;
