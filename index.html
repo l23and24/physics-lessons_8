@@ -22,6 +22,7 @@
             transition: all 0.2s;
             text-decoration: none;
             color: #475569;
+            background-color: white;
         }
         .lesson-card:hover {
             background-color: #4f46e5;
@@ -46,7 +47,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
             display: block;
-            background-color: #f1f5f9; /* Фоновий колір на випадок відсутності фото */
         }
         @media (min-width: 768px) {
             .book-cover-container {
@@ -65,7 +65,8 @@
                 
                 <!-- Блок з фото підручника -->
                 <div class="book-cover-container">
-                    <img src="cover_70_1.png" alt="Обкладинка підручника Фізика 8 клас" class="book-cover" onerror="this.src='https://placehold.co/150x200?text=Обкладинка'; this.style.opacity='0.5';">
+                    <!-- Додано параметр для уникнення кешування картинки -->
+                    <img src="cover_70_1.png" alt="Обкладинка підручника Фізика 8 клас" class="book-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x200?text=Фізика+8';">
                 </div>
 
                 <div class="flex-1">
@@ -121,18 +122,18 @@
     <script>
         // Конфігурація
         const TOTAL_LESSONS = 105; 
-        const FILE_PREFIX = '7'; // Префікс для файлів (як вони названі в папці)
+        const FILE_PREFIX = '7'; // Ваші файли мають назву 7.74, 7.75 тощо
 
-        // Функція для генерації кнопок
         function generateGrid() {
             const grid = document.getElementById('grid');
-            grid.innerHTML = ''; // Очищуємо сітку перед генерацією
+            if (!grid) return;
+            
+            grid.innerHTML = ''; 
             
             for (let i = 1; i <= TOTAL_LESSONS; i++) {
                 const lessonId = FILE_PREFIX + '.' + i;
                 const a = document.createElement('a');
                 
-                // Посилання веде на існуючі файли 7.x.html
                 a.href = lessonId + '.html';
                 a.className = 'lesson-card';
                 a.textContent = lessonId;
@@ -141,7 +142,6 @@
             }
         }
 
-        // Функція пошуку/фільтрації
         function filterLessons() {
             const input = document.getElementById('search');
             const filter = input.value.toLowerCase();
@@ -149,20 +149,24 @@
 
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                if (text.includes(filter)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = text.includes(filter) ? "flex" : "none";
             });
         }
 
-        // Запуск при завантаженні сторінки
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', generateGrid);
-        } else {
+        // Найнадійніший спосіб запуску генерації
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
             generateGrid();
+        } else {
+            document.addEventListener('DOMContentLoaded', generateGrid);
         }
+
+        // Додаткова перевірка через секунду, якщо скрипт не встиг
+        setTimeout(function() {
+            const grid = document.getElementById('grid');
+            if (grid && grid.children.length === 0) {
+                generateGrid();
+            }
+        }, 1000);
     </script>
 
 </body>
