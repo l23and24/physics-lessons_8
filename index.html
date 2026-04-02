@@ -39,7 +39,7 @@
             flex-shrink: 0;
             width: 150px;
             margin: 0 auto;
-            perspective: 1000px; /* Для 3D ефекту */
+            perspective: 1000px;
         }
         .book-cover {
             width: 100%;
@@ -127,7 +127,6 @@
     <script>
         // Конфігурація
         const TOTAL_LESSONS = 105; 
-        const FILE_PREFIX = '7'; // Префікс для назв файлів .html
 
         function generateGrid() {
             const grid = document.getElementById('grid');
@@ -136,8 +135,9 @@
             grid.innerHTML = ''; 
             
             for (let i = 1; i <= TOTAL_LESSONS; i++) {
-                const fileName = FILE_PREFIX + '.' + i + '.html';
-                const displayTitle = i.toString(); // Показуємо тільки номер (1, 2, 3...)
+                // Тепер посилання веде просто на i.html (наприклад, 1.html, 75.html)
+                const fileName = i + '.html';
+                const displayTitle = i.toString();
                 
                 const a = document.createElement('a');
                 a.href = fileName;
